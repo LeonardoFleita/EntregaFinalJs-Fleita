@@ -52,9 +52,16 @@ header nav ul li a {
 .main-index .carrito h2 {
   margin-bottom: 1rem;
 }
+.main-index .carrito table td {
+  padding-right: 1rem;
+}
+.main-index .carrito table td .agregarYQuitar {
+  margin-right: 0.2rem;
+  width: 1rem;
+}
 .main-index .carrito .total {
   margin-top: 1rem;
 }
-.main-index .carrito button {
+.main-index .carrito .botonCarrito {
   margin-top: 0.5rem;
 }/*# sourceMappingURL=style.css.map */

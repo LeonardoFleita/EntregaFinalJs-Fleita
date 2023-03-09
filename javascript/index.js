@@ -78,6 +78,8 @@ function agregarAlCarrito(arrayDeEntrada, arrayDeSalida){
                     el.precio *= cantidad.value;
                     arrayDeSalida.push(el);
                 };  
+                localStorage.removeItem("carrito");
+                arrayDeSalida = agruparRepetidos(productos, arrayDeSalida);
                 almacenar("carrito", JSON.stringify(arrayDeSalida));
             };
             window.location.reload();
@@ -93,55 +95,65 @@ function agruparRepetidos(array1, array2){
         let precio = precioTotal(repetido);
         let cantidad = cantidadTotal(repetido);
         let provisorio = [];
-        provisorio.push(el);
-        provisorio[0].precio = precio;
-        provisorio[0].cantidad = cantidad;
-        agrupados.push(provisorio[0]);
+        if(cantidad > 0){
+            provisorio.push(el);
+            provisorio[0].precio = precio;
+            provisorio[0].cantidad = cantidad;
+            provisorio[0].precioConIva = precio * 1.21;
+            agrupados.push(provisorio[0]);
+        };
     };
     return agrupados;
 };
 
 //Imprime el carrito en la página
-function imprimirCarrito(array1, array2){
+function imprimirCarrito(carri){
     let contenedor = document.getElementById("carrito__tabla");
-    let carritoAgrupado = agruparRepetidos(array1, array2);
-    if(array2.length > 0){
-        for(const prod of carritoAgrupado){
+    if(carri.length > 0){
+        for(const prod of carri){
             if(prod.cantidad > 0){
                 let fila = document.createElement("tr");
                 fila.innerHTML = `<td><h4>${prod.nombre}</h4></td>
                                 <td><p>Cantidad: ${prod.cantidad}</p></td>
-                                <td><button id="agregar${prod.id}">+</button><button id="quitar${prod.id}">-</button></td>
+                                <td><button class="agregarYQuitar" id="agregar${prod.id}">+</button><button class="agregarYQuitar" id="quitar${prod.id}">-</button></td>
                                 <td><p>Precio: $${prod.precio}</p></td>`
                 contenedor.appendChild(fila);
             };
         };
     };
-    let total = precioTotal(carritoAgrupado);
+    let total = precioTotal(carri);
     let totalImpreso = document.createElement("div");
     totalImpreso.className = "total";
     totalImpreso.innerHTML = `<h3>Total: $${total}</h3>`;
     contenedor.appendChild(totalImpreso);
 };
 
-//Agrega y quita productos del carrito
-function agregarYQuitar(carrito){
-    for(const prod of carrito){
+//Agrega y quita productos del carrito desde el mismo carrito
+function agregarYQuitar(produ, carri){
+    for(const prod of carri){
+        let obj = produ.filter((elemento) => elemento.id == prod.id);
+        let precioUnitario = parseInt(obj[0].precio);
         let agregar = document.getElementById("agregar"+prod.id);
         let quitar = document.getElementById("quitar"+prod.id);
-        agregar.addEventListener("click", () => {
-            let precioUnitario = parseInt(prod.precio) / parseInt(prod.cantidad); 
+        agregar.addEventListener("click", () => { 
             prod.cantidad = parseInt(prod.cantidad) + 1 ;
             prod.precio = precioUnitario * parseInt(prod.cantidad);
+            prod.precioConIva = prod.precio * 1.21;
             localStorage.removeItem("carrito");
-            almacenar("carrito", JSON.stringify(carrito));
+            almacenar("carrito", JSON.stringify(carri));
             window.location.reload();
         });
         quitar.addEventListener("click", () => {
             prod.cantidad = parseInt(prod.cantidad) - 1 ;
+            prod.precio = precioUnitario * parseInt(prod.cantidad);
+            prod.precioConIva = prod.precio * 1.21;
+            carri = carri.filter((elemento) => elemento.cantidad > 0);
+            localStorage.removeItem("carrito");
+            carri.length > 0 && almacenar("carrito", JSON.stringify(carri));
             window.location.reload();
         });
     };
+    
 };
 
 //Limpia el carrito
@@ -173,12 +185,13 @@ function cantidadTotal(array){
 //EJECUCIÓN
 
 carritoEnStorage && (carrito = carritoEnStorage);
+console.log(carrito);
 recuperarDeStorage("producto", productosEnStorage);
 imprimirProductos(productosEnStorage);
 agregarAlCarrito(productosEnStorage, carrito);
 limpiarCarrito();
-imprimirCarrito(productos, carrito);
-agregarYQuitar(carritoEnStorage);
+imprimirCarrito(carrito);
+agregarYQuitar(productos, carrito);
 
 
 
