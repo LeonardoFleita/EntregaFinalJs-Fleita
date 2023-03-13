@@ -1,7 +1,6 @@
 import { precioTotal, cantidadTotal, almacenar } from "./funcCarrito.js";
 
-export const productos = [];
-export const productosEnStorage = JSON.parse(localStorage.getItem("productos"));
+
 
 
 //CONSTRUCTORES
@@ -15,25 +14,17 @@ function producto(id, nombre, precio, descripcion, imagen){
     this.precioConIva = this.precio * 1.21;
 };
 
-//CREACION DE OBJETOS PARA LOS ARRAY
-
-productos.push(new producto(1, "Red velvet", 6500, "Torta de chocolate de color rojo brillante recubierta por capas de glaseado de queso cremoso", "img/redVelvet.jpg"));
-productos.push(new producto(2, "Tres chocolates", 5500, "Húmedo bizcochuelo de chocolate amargo, ganache de chocolate amargo y tropezones de avellanas en praline", "img/tresChocolates.jpg"));
-productos.push(new producto(3, "Strawberry", 6500, "Bizcochuelo de vainilla y pistachos, crema de queso mascarpone, agua de azahar y frutillas frescas", "img/strawberry.jpg"));
-productos.push(new producto(4, "La Rogelia", 2500, "Clásica torta rogel argentina, finas capas de galleta crujiente y dulce de leche, cubierta en merengue quemado", "img/laRogelia.jpg"));
-
 //Imprime los productos en la página junto con el botón de comprar y la cantidad
 export function imprimirProductos(array){
     for(const elemento of array){
         let div = document.createElement("div");
         div.className = "contenedor"
-        div.innerHTML = `<img src="${elemento.imagen}" alt="${elemento.nombre}" class="fotoProducto">
-                        <h3>${elemento.nombre}</h3>
-                        <p>${elemento.descripcion}</p>
-                        <p>$${elemento.precio}</p>
-                        <input type="number" id="cantidad${elemento.id}" value="1" min="1">
-                        <button class="comprar" id="boton${elemento.id}">Comprar</button>`;
-        document.getElementById("carta").appendChild(div);
+        div.innerHTML = `<img src="${elemento.image}" alt="${elemento.title}" class="fotoProducto">
+                        <h3>${elemento.title}</h3>
+                        <p>$${elemento.price}</p>`;
+                        //`<input type="number" id="cantidad${elemento.id}" value="1" min="1">
+                        //<button class="comprar" id="boton${elemento.id}">Comprar</button>`;
+        document.getElementById("productos__contenedor").appendChild(div);
     };
 };
 
