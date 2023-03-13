@@ -19,12 +19,18 @@ export function imprimirProductos(array){
     for(const elemento of array){
         let div = document.createElement("div");
         div.className = "contenedor"
-        div.innerHTML = `<img src="${elemento.image}" alt="${elemento.title}" class="fotoProducto">
+        div.innerHTML = `<a href="./pages/producto.html" class="linkAProducto">
+                        <img src="${elemento.image}" alt="${elemento.title}" class="fotoProducto">
                         <h3>${elemento.title}</h3>
-                        <p>$${elemento.price}</p>`;
+                        <p>US$ ${elemento.price}</p>
+                        </a>`;
                         //`<input type="number" id="cantidad${elemento.id}" value="1" min="1">
                         //<button class="comprar" id="boton${elemento.id}">Comprar</button>`;
         document.getElementById("productos__contenedor").appendChild(div);
+        div.onmouseover = () =>{
+            localStorage.removeItem("productoSeleccionado");
+            localStorage.setItem("productoSeleccionado", JSON.stringify(elemento));
+        };
     };
 };
 

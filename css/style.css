@@ -29,7 +29,7 @@ body .main-index .productos #productos__contenedor {
   display: flex;
   flex-wrap: wrap;
 }
-body .main-index .productos #productos__contenedor .contenedor {
+body .main-index .productos #productos__contenedor .contenedor a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,53 +40,65 @@ body .main-index .productos #productos__contenedor .contenedor {
   border-color: black;
   border-radius: 2%;
   background-color: white;
-  font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
+  color: rgb(136, 136, 136);
 }
-body .main-index .productos #productos__contenedor .contenedor:hover {
+body .main-index .productos #productos__contenedor .contenedor a:hover {
   align-items: center;
   box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.25);
 }
-body .main-index .productos #productos__contenedor .contenedor:hover h3 {
+body .main-index .productos #productos__contenedor .contenedor a:hover h3 {
   opacity: 100%;
 }
-body .main-index .productos #productos__contenedor .contenedor:hover p {
-  display: contents;
+body .main-index .productos #productos__contenedor .contenedor a:hover p {
+  opacity: 100%;
 }
-body .main-index .productos #productos__contenedor .contenedor h3 {
-  margin-bottom: 0.5rem;
+body .main-index .productos #productos__contenedor .contenedor a:hover .fotoProducto {
+  width: 8rem;
+}
+body .main-index .productos #productos__contenedor .contenedor a h3 {
+  margin-top: 1rem;
   opacity: 0;
   text-align: center;
+  font-size: 0.8rem;
 }
-body .main-index .productos #productos__contenedor .contenedor p {
-  margin-bottom: 0.5rem;
-  display: none;
+body .main-index .productos #productos__contenedor .contenedor a p {
+  margin-top: 0.5rem;
+  opacity: 0;
+  font-size: 1rem;
 }
-body .main-index .productos #productos__contenedor .contenedor .cantidad {
+body .main-index .productos #productos__contenedor .contenedor a .cantidad {
   width: 2rem;
 }
-body .main-index .productos #productos__contenedor .contenedor .fotoProducto {
+body .main-index .productos #productos__contenedor .contenedor a .fotoProducto {
   margin-top: 1rem;
-  width: 10rem;
+  width: 9.5rem;
   height: -moz-fit-content;
   height: fit-content;
 }
-body .carrito {
-  margin-top: 1rem;
+
+body main {
+  background-color: rgb(230, 230, 230);
 }
-body .carrito h2 {
-  margin-bottom: 1rem;
+body main #productoSeleccionado {
+  background-color: white;
+  display: grid;
+  grid-template-areas: "foto" "nombre" "descripcion" "precio";
 }
-body .carrito table td {
-  padding-right: 1rem;
+body main #productoSeleccionado .productoSeleccionado__img {
+  margin-top: 2rem;
+  grid-area: foto;
 }
-body .carrito table td .agregarYQuitar {
-  margin-right: 0.2rem;
-  width: 1rem;
+body main #productoSeleccionado .productoSeleccionado__img img {
+  width: 20rem;
 }
-body .carrito .total {
-  margin-top: 1rem;
+body main #productoSeleccionado .productoSeleccionado__descripcion {
+  grid-area: descripcion;
 }
-body .carrito .botonCarrito {
-  margin-top: 0.5rem;
+body main #productoSeleccionado .productoSeleccionado__nombre {
+  grid-area: nombre;
+  margin-top: 2rem;
+}
+body main #productoSeleccionado .productoSeleccionado__comprar {
+  grid-area: comprar;
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,21 @@
+.carrito{
+    margin-top: 1rem;
+    h2{
+        margin-bottom: 1rem;
+    }
+    table{
+        td{
+            padding-right: 1rem;
+            .agregarYQuitar{
+                margin-right: 0.2rem;
+                width: 1rem;
+            }
+        }
+    }
+    .total{
+        margin-top: 1rem;
+    }
+    .botonCarrito{
+        margin-top: 0.5rem;
+    }
+}

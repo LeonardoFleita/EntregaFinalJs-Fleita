@@ -1,0 +1,28 @@
+body{
+    main{
+        background-color: rgb(230, 230, 230);
+        #productoSeleccionado{
+            background-color: white;
+            display: grid;
+            grid-template-areas: "foto" "nombre"
+            "descripcion" "precio";
+            .productoSeleccionado__img{
+                margin-top: 2rem;
+                grid-area: foto;
+                img{
+                    width: 20rem;
+                }
+            }
+            .productoSeleccionado__descripcion{
+                grid-area: descripcion;
+            }
+            .productoSeleccionado__nombre{
+                grid-area: nombre;
+                margin-top: 2rem;
+            }
+            .productoSeleccionado__comprar{
+                grid-area: comprar;
+            }
+        }
+    }
+}

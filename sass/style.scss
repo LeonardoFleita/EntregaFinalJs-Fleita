@@ -9,102 +9,11 @@ a{
     text-decoration: none;
 }
 
-body{
-    header{
-        nav{
-            ul{
-                list-style: none;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                li{
-                    img{
-                        width: 8rem;
-                    }
-                }
-                li{
-                    a{
-                        margin-right: 3rem;
-                    }
-                }
-            }
-        };
-    }
+@import "index";
+@import "producto";
+
+
+        
     
-    .main-index{
-        background-color: rgb(230, 230, 230);
-        .productos{
-            #productos__contenedor{
-                margin-top: 1rem ;
-                display: flex;
-                flex-wrap: wrap;
-                .contenedor{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    width: 15rem;
-                    height: 23rem;
-                    margin: 1.5rem;
-                    border-color: black;
-                    border-radius: 2%;
-                    background-color: white;
-                    font-size: 0.8rem;
-                    font-family: 'Roboto', sans-serif;
-                    &:hover{
-                        align-items: center;
-                        box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.25);
-                        //height: 23.5rem;
-                        h3{
-                            opacity: 100%;
-                        }
-                        p{
-                            display: contents;
-                        }
-                    }
-                    h3{
-                        margin-bottom: 0.5rem;
-                        opacity: 0;
-                        text-align: center;
-                    }
-                    p{
-                        margin-bottom: 0.5rem;
-                        display: none;
-                    }
-                    .cantidad{
-                        width: 2rem;
-                    }
-                    .fotoProducto{
-                        margin-top: 1rem;
-                        width: 10rem;
-                        height: fit-content;
-                    }
-                }
-            }
-        }
-    }    
-        .carrito{
-            margin-top: 1rem;
-            h2{
-                margin-bottom: 1rem;
-            }
-            table{
-                td{
-                    padding-right: 1rem;
-                    .agregarYQuitar{
-                        margin-right: 0.2rem;
-                        width: 1rem;
-                    }
-                }
-            }
-            .total{
-                margin-top: 1rem;
-            }
-            .botonCarrito{
-                margin-top: 0.5rem;
-            }
-        }
-    }
 
 
