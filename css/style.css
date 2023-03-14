@@ -47,7 +47,7 @@ body .main-index .productos #productos__contenedor .contenedor a:hover {
   align-items: center;
   box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.25);
 }
-body .main-index .productos #productos__contenedor .contenedor a:hover h3 {
+body .main-index .productos #productos__contenedor .contenedor a:hover h2 {
   opacity: 100%;
   font-size: 0.8rem;
 }
@@ -58,7 +58,7 @@ body .main-index .productos #productos__contenedor .contenedor a:hover p {
 body .main-index .productos #productos__contenedor .contenedor a:hover .fotoProducto {
   width: 8rem;
 }
-body .main-index .productos #productos__contenedor .contenedor a h3 {
+body .main-index .productos #productos__contenedor .contenedor a h2 {
   margin: 1rem 1rem 0 1rem;
   opacity: 0;
   text-align: center;
@@ -124,4 +124,35 @@ body main #productoSeleccionado .productoSeleccionado__contenedorA {
 }
 body main #productoSeleccionado .productoSeleccionado__contenedorB {
   padding-left: 1rem;
+}
+
+#carrito__seccion {
+  margin-top: 1rem;
+}
+#carrito__seccion h1 {
+  margin-bottom: 1rem;
+}
+#carrito__seccion #carrito__contenedorTabla {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#carrito__seccion #carrito__contenedorTabla table tr td {
+  padding-right: 1rem;
+}
+#carrito__seccion #carrito__contenedorTabla table tr td h2 {
+  font-size: 1.8rem;
+}
+#carrito__seccion #carrito__contenedorTabla table tr td img {
+  width: 3rem;
+}
+#carrito__seccion #carrito__contenedorTabla table tr td .agregarYQuitar {
+  margin-right: 0.2rem;
+  width: 1rem;
+}
+#carrito__seccion #carrito__contenedorTabla .total {
+  margin-top: 1rem;
+}
+#carrito__seccion #carrito__contenedorTabla .total .botonCarrito {
+  margin-top: 0.5rem;
 }/*# sourceMappingURL=style.css.map */

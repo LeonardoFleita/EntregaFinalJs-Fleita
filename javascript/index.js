@@ -1,4 +1,4 @@
-import { almacenar } from "./modules/funcCarrito.js"
+import { almacenar } from "./modules/generales.js"
 
 const productos = JSON.parse(localStorage.getItem("productos"));
 
@@ -18,7 +18,7 @@ function imprimirProductos(array){
         div.className = "contenedor"
         div.innerHTML = `<a href="./pages/producto.html" class="linkAProducto">
                         <img src="${elemento.image}" alt="${elemento.title}" class="fotoProducto">
-                        <h3>${elemento.title}</h3>
+                        <h2>${elemento.title}</h2>
                         <p>US$ ${elemento.price}</p>
                         </a>`;
         document.getElementById("productos__contenedor").appendChild(div);

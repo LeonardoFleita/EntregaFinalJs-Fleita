@@ -1,4 +1,4 @@
-import { precioTotal, cantidadTotal, almacenar } from "./modules/funcCarrito.js";
+import { precioTotal, cantidadTotal, almacenar } from "./modules/generales.js";
 
 let carrito = [];
 let carritoEnStorage = JSON.parse(localStorage.getItem("carrito"));
