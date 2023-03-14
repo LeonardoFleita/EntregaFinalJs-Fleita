@@ -1,7 +1,6 @@
-import {imprimirProductos, agregarAlCarrito} from "./functions/funcProductos.js"
-import {almacenar} from "./functions/funcCarrito.js"
-let carrito = [];
-let carritoEnStorage = JSON.parse(localStorage.getItem("carrito"));
+import { imprimirProductos } from "./functions/funcProductos.js"
+import { almacenar } from "./functions/funcCarrito.js"
+
 const productos = JSON.parse(localStorage.getItem("productos"));
 
 function almacenarApiEnStorage(clave){
@@ -13,11 +12,8 @@ function almacenarApiEnStorage(clave){
 };
 
 almacenarApiEnStorage("productos");
-console.log(productos);
-
-carritoEnStorage && (carrito = carritoEnStorage);
 imprimirProductos(productos);
-//agregarAlCarrito(productos, carrito);
+
 
 
 
