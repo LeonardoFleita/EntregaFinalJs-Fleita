@@ -22,7 +22,7 @@ function agregarAlCarrito(prod, arrayDeEntrada, arrayDeSalida){
             arrayDeSalida = agruparRepetidos(arrayDeEntrada, arrayDeSalida);
             almacenar("carrito", JSON.stringify(arrayDeSalida));
             swal({
-                title: "Producto agregado al cacrrito",
+                title: "Producto agregado al carrito",
                 text: "¿Qué deseas hacer a continuación?",
                 icon: "success",
                 buttons: {
