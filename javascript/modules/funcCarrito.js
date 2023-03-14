@@ -63,7 +63,7 @@ export function limpiarCarrito(){
 //Retorna precio total de los objetos de un array
 export function precioTotal(array){
     let nuevoArray = array.map((el) => {
-        return el.precio});
+        return el.price});
     let total = nuevoArray.reduce((acumulador, precio) => acumulador + precio, 0);
     return total;
 };
