@@ -11,11 +11,18 @@ body{
                     img{
                         width: 8rem;
                     }
-                }
-                li{
                     a{
                         margin-right: 3rem;
                     }
+                    #usuarioLogueado{
+                        font-weight: 500;
+                    }
+                }
+                .display-on{
+                    display: contents
+                }
+                .display-off{
+                    display: none;
                 }
             }
         };

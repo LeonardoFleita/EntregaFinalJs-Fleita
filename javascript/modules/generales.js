@@ -20,3 +20,17 @@ export function cantidadTotal(array){
     let total = nuevoArray.reduce((acumulador, cant) => acumulador + cant, 0);
     return total;
 };
+
+export function logueo(user){
+    let iniciar = document.getElementById("iniciarSesion");
+    let cerrar = document.getElementById("cerrarSesion");
+    if(user){
+        iniciar.className = "display-off";
+        cerrar.className = "display-on";
+    }else{
+        iniciar.className = "display-on";
+        cerrar.className = "display-off";
+    };
+};
+
+

@@ -44,8 +44,9 @@ function agregarAlCarrito(prod, arrayDeEntrada, arrayDeSalida){
                         break;
 
                     case "carrito":
-                        location.href = "./carrito.html"
-                }
+                        location.href = "./carrito.html";
+                        break;
+                };
             });
         };
     };

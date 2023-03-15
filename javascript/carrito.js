@@ -4,18 +4,21 @@ let carrito = JSON.parse(localStorage.getItem("carrito"));
 let productos = JSON.parse(localStorage.getItem("productos"));
 
 //Imprime el carrito en la página
-function imprimirCarrito(carri){
+function imprimirCarrito(produ, carri){
     let contenedor = document.getElementById("carrito__tabla");
     if(carri){
         for(const prod of carri){
             if(prod.cantidad > 0){
                 let fila = document.createElement("tr");
                 let precio = parseFloat(prod.price);
+                let obj = produ.filter((elemento) => elemento.id == prod.id);
+                let precioUnitario = parseFloat(obj[0].price);
                 fila.innerHTML = `<td><img src="${prod.image}" class="productoEnCarrito__img"></td>
                                 <td><h2>${prod.title}</h2></td>
+                                <td><p>Precio: US$${precioUnitario}</p></td>
                                 <td><p>Cantidad: ${prod.cantidad}</p></td>
                                 <td><button class="agregarYQuitar" id="agregar${prod.id}">+</button><button class="agregarYQuitar" id="quitar${prod.id}">-</button></td>
-                                <td><p>Precio: US$${precio.toFixed(2)}</p></td>`
+                                <td><p>Total: US$${precio.toFixed(2)}</p></td>`
                 contenedor.appendChild(fila);
             };
         };
@@ -72,6 +75,6 @@ if(!carrito){
         location.href = "../index.html"
     });
 };
-imprimirCarrito(carrito);
+imprimirCarrito(productos, carrito);
 limpiarCarrito();
 agregarYQuitar(productos, carrito);
