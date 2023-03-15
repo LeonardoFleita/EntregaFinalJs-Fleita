@@ -33,7 +33,7 @@ function imprimirProductos(array){
 let formato = {month: 'long', day: 'numeric'};
 let oferta = luxon.DateTime.now().plus({days: 7}).setLocale('es').toLocaleString(formato);
 let toast = Toastify({
-    text: `Aproveche nuestras ofertas disponibles hasta el ${oferta}`,
+    text: `Descuentos en todos nuestros productos hasta el ${oferta}`,
     duration: 5000,
     style: {
             background: "linear-gradient(to right, #484849, #777879)",

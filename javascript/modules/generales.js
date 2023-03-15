@@ -8,6 +8,8 @@ export function precioTotal(array){
     let nuevoArray = array.map((el) => {
         return el.price});
     let total = nuevoArray.reduce((acumulador, precio) => acumulador + precio, 0);
+    total = parseFloat(total);
+    total = total.toFixed(2);
     return total;
 };
 

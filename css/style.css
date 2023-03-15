@@ -38,7 +38,7 @@ body .main-index .productos #productos__contenedor .contenedor a {
   height: 23rem;
   margin: 1.5rem;
   border-color: black;
-  border-radius: 2%;
+  border-radius: 5px;
   background-color: white;
   font-family: "Roboto", sans-serif;
   color: rgb(136, 136, 136);
@@ -91,7 +91,7 @@ body main #productoSeleccionado {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-radius: 1%;
+  border-radius: 5px;
   width: 52rem;
   margin: 2rem;
   padding: 1rem;
@@ -126,22 +126,25 @@ body main #productoSeleccionado .productoSeleccionado__contenedorB {
   padding-left: 1rem;
 }
 
-#carrito__seccion {
-  margin-top: 1rem;
-}
-#carrito__seccion h1 {
-  margin-bottom: 1rem;
-}
 #carrito__seccion #carrito__contenedorTabla {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 2rem;
+}
+#carrito__seccion #carrito__contenedorTabla:hover {
+  box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.25);
 }
 #carrito__seccion #carrito__contenedorTabla table tr td {
+  padding: 1rem 0 1rem 0;
+  border-bottom: solid 1px rgb(150, 150, 150);
   padding-right: 1rem;
 }
 #carrito__seccion #carrito__contenedorTabla table tr td h2 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
 }
 #carrito__seccion #carrito__contenedorTabla table tr td img {
   width: 3rem;
