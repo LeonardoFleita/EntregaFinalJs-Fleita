@@ -183,27 +183,35 @@ body .main-index #productoSeleccionado .productoSeleccionado__contenedorB {
   color: rgb(136, 136, 136);
 }
 .main-login .login {
-  width: 50rem;
-}
-.main-login .login div {
-  margin: 2rem;
-}
-.main-login .login div div {
-  display: flex;
-  flex-direction: column;
+  width: 30rem;
   background-color: white;
   border-radius: 5px;
-  width: 40rem;
   padding: 1rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
-.main-login .login div div legend {
-  margin: 0.5rem 1rem 0.5rem 1rem;
+.main-login .login:hover {
+  box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.25);
+}
+.main-login .login div {
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+}
+.main-login .login div h1 {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+.main-login .login div legend {
+  margin-left: 1rem;
   font-size: 1rem;
 }
-.main-login .login div div input {
-  margin: 0.5rem 1rem 0.5rem 1rem;
+.main-login .login div input {
+  margin: 0rem 1rem 0.5rem 1rem;
 }
-.main-login .login div div button {
+.main-login .login button {
   width: 10rem;
-  margin: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem 1rem 0.5rem 0rem;
 }/*# sourceMappingURL=style.css.map */

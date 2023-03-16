@@ -1,4 +1,4 @@
-import { almacenar, logueo } from "./modules/generales.js"
+import { almacenar, logueo, cerrarSesion } from "./modules/generales.js"
 
 const productos = JSON.parse(localStorage.getItem("productos"));
 let usuario = JSON.parse(localStorage.getItem("usuario"));
@@ -47,6 +47,7 @@ let toast = Toastify({
 let mostrarUsuario = document.getElementById("usuarioLogueado");
 logueo(usuario);
 usuario && (mostrarUsuario.innerHTML = usuario.nombre);
+cerrarSesion();
 setTimeout(()=>{toast.showToast();}, 3000);
 almacenarApiEnStorage("productos");
 imprimirProductos(productos);

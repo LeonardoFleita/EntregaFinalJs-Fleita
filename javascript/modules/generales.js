@@ -33,4 +33,10 @@ export function logueo(user){
     };
 };
 
-
+export function cerrarSesion(){
+    let cerrar = document.getElementById("cerrarSesion__link");
+    cerrar.onclick = () =>{
+        localStorage.removeItem("usuario");
+        window.location.reload();
+    }
+}

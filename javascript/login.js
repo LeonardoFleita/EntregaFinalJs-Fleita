@@ -5,16 +5,14 @@ let signUp = document.getElementById("signUp");
 let clientes = [];
 
 function iniciar(){
-    signIn.innerHTML = `<div>
-                            <div class="signIn__formulario">
-                                <h1>Iniciar sesión</h1>
-                                <legend>E-mail</legend>
-                                <input type="email" id="signIn__email" value="">
-                                <legend>Contraseña</legend>
-                                <input type="password" id="signIn__pass" value="">
-                                <button id="signIn__iniciar">Iniciar</buttton>
+    signIn.innerHTML = `<div class="signIn__formulario">
+                            <h1>Iniciar sesión</h1>
+                            <legend>E-mail</legend>
+                            <input type="email" id="signIn__email" value="">
+                            <legend>Contraseña</legend>
+                            <input type="password" id="signIn__pass" value="">
                             </div>
-                        </div>`;
+                        <button id="signIn__iniciar">Iniciar</buttton>`;
 };
 
 function esCliente(usuarios){
@@ -23,7 +21,7 @@ function esCliente(usuarios){
     let boton = document.getElementById("signIn__iniciar");
     boton.onclick = () =>{
         let usuario = usuarios.filter((elemento) => elemento.correo == email.value);
-        if(usuario){
+        if(usuario.lenght > 0){
             if(usuario[0].pass == pass.value){
                 almacenar("usuario", JSON.stringify(usuario[0]));
                 swal({
@@ -39,18 +37,12 @@ function esCliente(usuarios){
                     title: "Usuario o contraseña incorrectos",
                     icon: "error",
                 })
-                .then(()=>{
-                    window.location.reload();
-                });
             }
         }else{
             swal({
                 title: "Usuario o contraseña incorrectos",
                 icon: "error",
             })
-            .then(()=>{
-                window.location.reload();
-            });
         }; 
     };
 };
@@ -91,6 +83,7 @@ swal({
             break;
 
         case "iniciar":
+            signIn.className = "login";
             iniciar();
             esCliente(clientes);
             break;
