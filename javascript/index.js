@@ -1,7 +1,7 @@
 import { almacenar, logueo, cerrarSesion } from "./modules/generales.js"
 
 const productos = JSON.parse(localStorage.getItem("productos"));
-let usuario = JSON.parse(localStorage.getItem("usuario"));
+let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
 //Recupera los productos de la Api y los guarda en el storage
 function almacenarApiEnStorage(clave){
@@ -43,7 +43,6 @@ let toast = Toastify({
 
 
 //EJECUCIÓN
-
 let mostrarUsuario = document.getElementById("usuarioLogueado");
 logueo(usuario);
 usuario && (mostrarUsuario.innerHTML = usuario.nombre);
