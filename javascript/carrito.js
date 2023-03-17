@@ -67,6 +67,7 @@ function limpiarCarrito(){
     }
 };
 
+//Permite comprar si hay una sesión iniciada
 function comprar(carri, user){
     let boton = document.getElementById("comprar");
     boton.onclick = () =>{
@@ -101,9 +102,8 @@ function comprar(carri, user){
 };
 
 
-
-
 //EJECUCIÓN
+
 ordenesDeCompraEnStorage && (ordenesDeCompra = ordenesDeCompraEnStorage);
 if(!carrito){
     swal({

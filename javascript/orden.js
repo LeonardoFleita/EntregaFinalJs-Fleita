@@ -3,6 +3,7 @@ import { logueo, cerrarSesion, mostrarUsuario } from "./modules/generales.js";
 let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 let ordenDeCompra = JSON.parse(sessionStorage.getItem("orden"));
 
+//Imprime la orden
 function imprimirOrden(orden, user){
     let contenedor = document.getElementById("orden");
     let formato = {month: 'long', day: 'numeric'};
@@ -19,6 +20,7 @@ function imprimirOrden(orden, user){
                             <p>${fecha}</p>`;
 };
 
+//Imprime los productos dentro de la orden
 function productosParaImprimir(orden){
     let productos = orden.productos;
     let contenedor = document.getElementById("productosOrden");
@@ -30,6 +32,9 @@ function productosParaImprimir(orden){
     };
     console.log(productos);
 };
+
+
+//EJECUCIÓN
 
 if(usuario){
     imprimirOrden(ordenDeCompra, usuario);

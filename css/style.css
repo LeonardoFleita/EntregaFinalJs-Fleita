@@ -87,6 +87,17 @@ body .main-index .productos #productos__contenedor .contenedor a .fotoProducto {
   height: -moz-fit-content;
   height: fit-content;
 }
+body footer {
+  background-color: black;
+  font-size: 1rem;
+  padding: 1.5rem;
+  color: white;
+  font-weight: 300;
+}
+body footer p {
+  margin: 0;
+  text-align: center;
+}
 
 body main {
   background-color: rgb(230, 230, 230);
@@ -222,7 +233,7 @@ main #orden {
   font-family: "Roboto", sans-serif;
   color: rgb(136, 136, 136);
   margin: 2rem;
-  width: 20rem;
+  width: 25rem;
   padding: 1rem;
 }
 main #orden:hover {

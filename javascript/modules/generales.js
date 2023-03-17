@@ -21,6 +21,7 @@ export function cantidadTotal(array){
     return total;
 };
 
+//Determina si el usuario está logueado y en base a eso muestra iniciar o cerrar sesión
 export function logueo(user){
     let iniciar = document.getElementsByClassName("iniciarSesion");
     let cerrar = document.getElementsByClassName("cerrarSesion");
@@ -41,6 +42,7 @@ export function logueo(user){
     };
 };
 
+//cierra la sesión
 export function cerrarSesion(){
     let cerrar = document.getElementsByClassName("cerrarSesion__link");
     for(const boton of cerrar){
@@ -54,6 +56,7 @@ export function cerrarSesion(){
     };
 };
 
+//Muestra el usuario logueado en la nav
 export function mostrarUsuario(usuario){
     let usuarioLogueado = document.getElementsByClassName("usuarioLogueado");
     if(usuario){
@@ -63,6 +66,7 @@ export function mostrarUsuario(usuario){
     }; 
 };
 
+//Filtra los productos por categorías para poder imprimir las categorpias seleccionadas en el index
 export function filtrar(prods){
     let todos = document.getElementsByClassName("cat__todos");
     let mujer = document.getElementsByClassName("cat__mujer");

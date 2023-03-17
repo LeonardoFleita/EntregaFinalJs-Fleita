@@ -44,6 +44,7 @@ let toast = Toastify({
 
 
 //EJECUCIÓN
+
 logueo(usuario);
 mostrarUsuario(usuario);
 cerrarSesion();

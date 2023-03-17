@@ -53,7 +53,7 @@ function agregarAlCarrito(prod, arrayDeEntrada, arrayDeSalida){
     };
 };
 
-//Agrupa elementos repetidos en uno solo, actualizando los valores de cantidad y precio, es para usar dentro de imprimirCarrito()
+//Agrupa elementos repetidos en uno solo, actualizando los valores de cantidad y precio, es para usar dentro de agregarAlCarrito()
 function agruparRepetidos(array1, array2){
     let agrupados = [];
     for(const el of array1){
@@ -95,7 +95,6 @@ contenedor.innerHTML = `<section class="productoSeleccionado__contenedor product
                         </section>`;
 
 carritoEnStorage && (carrito = carritoEnStorage);
-console.log(carrito);
 agregarAlCarrito(productoSeleccionado, productos, carrito);
 logueo(usuario);
 mostrarUsuario(usuario);

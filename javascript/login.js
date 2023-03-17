@@ -5,7 +5,21 @@ let signUp = document.getElementById("signUp");
 let usuariosRegistrados = [];
 let usuariosEnStorage = JSON.parse(localStorage.getItem("usuarios"));
 
+class user{
+    constructor(nombre, apellido, telefono, direccion, dni, correo, pass){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.dni = parseInt(dni);
+        this.correo = correo;
+        this.pass = pass;
+    };
+};
 
+usuariosRegistrados.push(new user("Leonardo", "Fleita", "1155555555", "Calle falsa 123", "33471611", "leojf@gmail.com", "leo0000"));
+
+//Imprime el formulario en caso de ser usuario y querer iniciar sesión
 function iniciar(){
     signIn.innerHTML = `<div class="signIn__formulario">
                             <h1>Iniciar sesión</h1>
@@ -17,6 +31,7 @@ function iniciar(){
                         <button id="signIn__iniciar">Iniciar</buttton>`;
 };
 
+//Permite el inicio de sesión si los datos son correctos
 function esUsuario(usuarios){
     let email = document.getElementById("signIn__email");
     let pass = document.getElementById("signIn__pass");
@@ -34,7 +49,6 @@ function esUsuario(usuarios){
                     localStorage.setItem("usuarios", JSON.stringify(usuariosRegistrados));
                     location.href = "../index.html";
                 });
-
             }else{
                 swal({
                     title: "Usuario o contraseña incorrectos",
@@ -50,21 +64,7 @@ function esUsuario(usuarios){
     };
 };
 
-class user{
-    constructor(nombre, apellido, telefono, direccion, dni, correo, pass){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.dni = parseInt(dni);
-        this.correo = correo;
-        this.pass = pass;
-    };
-};
-
-usuariosRegistrados.push(new user("Leonardo", "Fleita", "1155555555", "Calle falsa 123", "33471611", "leojf@gmail.com", "leo0000"));
-
-
+//Imprime el formulario de registro (No trabajé con etiquetas de form y fieldset porque me traían problemas en los eventos que no sabía como resolver)
 function registro(){
     signUp.innerHTML = `<div class="signUp__formulario">
                             <h1>Registrarse</h1>
@@ -86,6 +86,7 @@ function registro(){
                         <button id="signUp__registro">Registrarse</buttton>`
 };
 
+//Permite al usuario registrarse siempre que ya no esté registrado
 function registrarse(usuarios){
     let nombre = document.getElementById("signUp__nombre");
     let apellido = document.getElementById("signUp__apellido");
@@ -143,6 +144,7 @@ function registrarse(usuarios){
         }; 
     };
 };
+
 
 //EJECUCIÓN
 
