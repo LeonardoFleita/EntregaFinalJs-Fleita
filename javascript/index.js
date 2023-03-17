@@ -1,4 +1,4 @@
-import { almacenar, logueo, cerrarSesion } from "./modules/generales.js"
+import { almacenar, logueo, cerrarSesion, mostrarUsuario, filtrar } from "./modules/generales.js"
 
 const productos = JSON.parse(localStorage.getItem("productos"));
 let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
@@ -43,13 +43,18 @@ let toast = Toastify({
 
 
 //EJECUCIÓN
-let mostrarUsuario = document.getElementById("usuarioLogueado");
 logueo(usuario);
-usuario && (mostrarUsuario.innerHTML = usuario.nombre);
+mostrarUsuario(usuario);
 cerrarSesion();
 setTimeout(()=>{toast.showToast();}, 3000);
 almacenarApiEnStorage("productos");
-imprimirProductos(productos);
+filtrar(productos);
+let filtro = JSON.parse(localStorage.getItem("filtro"));
+if(filtro){
+    imprimirProductos(filtro);   
+}else{
+    imprimirProductos(productos);
+};
 
 
 

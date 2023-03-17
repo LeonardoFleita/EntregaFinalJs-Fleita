@@ -1,7 +1,8 @@
-import { precioTotal, almacenar } from "./modules/generales.js";
+import { precioTotal, almacenar, logueo, cerrarSesion, mostrarUsuario } from "./modules/generales.js";
 
 let carrito = JSON.parse(localStorage.getItem("carrito"));
 let productos = JSON.parse(localStorage.getItem("productos"));
+let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
 //Imprime el carrito en la página
 function imprimirCarrito(produ, carri){
@@ -78,3 +79,6 @@ if(!carrito){
 imprimirCarrito(productos, carrito);
 limpiarCarrito();
 agregarYQuitar(productos, carrito);
+logueo(usuario);
+mostrarUsuario(usuario);
+cerrarSesion();

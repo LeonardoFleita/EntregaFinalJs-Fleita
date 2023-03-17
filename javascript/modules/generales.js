@@ -22,22 +22,96 @@ export function cantidadTotal(array){
 };
 
 export function logueo(user){
-    let iniciar = document.getElementById("iniciarSesion");
-    let cerrar = document.getElementById("cerrarSesion");
+    let iniciar = document.getElementsByClassName("iniciarSesion");
+    let cerrar = document.getElementsByClassName("cerrarSesion");
     if(user){
-        iniciar.className = "display-off";
-        cerrar.className = "display-on";
+        for(const us of iniciar){
+            us.className = "nav-item display-off";
+        };
+        for(const us of cerrar){
+            us.className = "nav-item display-on";
+        };
     }else{
-        iniciar.className = "display-on";
-        cerrar.className = "display-off";
+        for(const us of iniciar){
+            us.className = "nav-item display-on";
+        };
+        for(const us of cerrar){
+            us.className = "nav-item display-off";
+        };
     };
 };
 
 export function cerrarSesion(){
-    let cerrar = document.getElementById("cerrarSesion__link");
-    cerrar.onclick = () =>{
-        localStorage.removeItem("usuarioLogueado");
-        window.location.reload();
-    }
-}
+    let cerrar = document.getElementsByClassName("cerrarSesion__link");
+    for(const boton of cerrar){
+        boton.onclick = () =>{
+            localStorage.removeItem("usuarioLogueado");
+            window.location.reload();
+        };
+    };
+};
+
+export function mostrarUsuario(usuario){
+    let usuarioLogueado = document.getElementsByClassName("usuarioLogueado");
+    if(usuario){
+        for(const us of usuarioLogueado){
+            us.innerHTML = usuario.nombre;
+        };
+    }; 
+};
+
+export function filtrar(prods){
+    let todos = document.getElementsByClassName("cat__todos");
+    let mujer = document.getElementsByClassName("cat__mujer");
+    let joyas = document.getElementsByClassName("cat__joyas");
+    let hombre = document.getElementsByClassName("cat__hombre");
+    let electronica = document.getElementsByClassName("cat__electronica");
+    for(const el of todos){
+        el.onclick = ()=>{
+            localStorage.removeItem("filtro");
+            localStorage.setItem("filtro", JSON.stringify(prods));
+            window.location.reload();
+        };
+    };
+    for(const el of mujer){
+        el.onclick = ()=>{
+            let catMujer = prods.filter((el)=>{
+                return el.category == "women's clothing";
+            })
+            localStorage.removeItem("filtro");
+            localStorage.setItem("filtro", JSON.stringify(catMujer));
+            window.location.reload();
+        };
+    };
+    for(const el of joyas){
+        el.onclick = ()=>{
+            let catJoyas = prods.filter((el)=>{
+                return el.category == "jewelery";
+            })
+            localStorage.removeItem("filtro");
+            localStorage.setItem("filtro", JSON.stringify(catJoyas));
+            window.location.reload();
+        };
+    };
+    for(const el of hombre){
+        el.onclick = ()=>{
+            let catHombre = prods.filter((el)=>{
+                return el.category == "men's clothing";
+            })
+            localStorage.removeItem("filtro");
+            localStorage.setItem("filtro", JSON.stringify(catHombre));
+            window.location.reload();
+        };
+    };
+    for(const el of electronica){
+        el.onclick = ()=>{
+            let catElectronica = prods.filter((el)=>{
+                return el.category == "electronics";
+            })
+            localStorage.removeItem("filtro");
+            localStorage.setItem("filtro", JSON.stringify(catElectronica));
+            window.location.reload();
+        };
+    };
+};
 

@@ -1,9 +1,10 @@
-import { precioTotal, cantidadTotal, almacenar } from "./modules/generales.js";
+import { precioTotal, cantidadTotal, almacenar, logueo, cerrarSesion, mostrarUsuario } from "./modules/generales.js";
 
 let carrito = [];
 let carritoEnStorage = JSON.parse(localStorage.getItem("carrito"));
 let productos = JSON.parse(localStorage.getItem("productos"));
 let productoSeleccionado = JSON.parse(localStorage.getItem("productoSeleccionado"));
+let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
 //Agrega productos al carrito y almacena el carrito en el local storage
 function agregarAlCarrito(prod, arrayDeEntrada, arrayDeSalida){
@@ -96,3 +97,6 @@ contenedor.innerHTML = `<section class="productoSeleccionado__contenedor product
 carritoEnStorage && (carrito = carritoEnStorage);
 console.log(carrito);
 agregarAlCarrito(productoSeleccionado, productos, carrito);
+logueo(usuario);
+mostrarUsuario(usuario);
+cerrarSesion();
