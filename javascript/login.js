@@ -31,6 +31,7 @@ function esUsuario(usuarios){
                     icon: "success",
                 })
                 .then(()=>{
+                    localStorage.setItem("usuarios", JSON.stringify(usuariosRegistrados));
                     location.href = "../index.html";
                 });
 
@@ -114,7 +115,6 @@ function registrarse(usuarios){
             let dniRegistrado = usuarios.find((u) => u.dni == dni.value);
             if(!emailRegistrado && !dniRegistrado){
                 usuarios.push(nuevoUsuario);
-                localStorage.removeItem("usuarios");
                 localStorage.setItem("usuarios", JSON.stringify(usuarios));
                 swal({
                     title: "Usuario registrado",
@@ -147,7 +147,6 @@ function registrarse(usuarios){
 //EJECUCIÓN
 
 usuariosEnStorage && (usuariosRegistrados = usuariosEnStorage);
-console.log(usuariosEnStorage);
 swal({
     title: "Bienvenido",
     text: "¿Es usted usuario registrado en nuestro sitio?",

@@ -3,6 +3,8 @@ import { precioTotal, almacenar, logueo, cerrarSesion, mostrarUsuario } from "./
 let carrito = JSON.parse(localStorage.getItem("carrito"));
 let productos = JSON.parse(localStorage.getItem("productos"));
 let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+let ordenesDeCompra = [];
+let ordenesDeCompraEnStorage = JSON.parse(sessionStorage.getItem("ordenesDeCompra"));
 
 //Imprime el carrito en la página
 function imprimirCarrito(produ, carri){
@@ -65,7 +67,44 @@ function limpiarCarrito(){
     }
 };
 
+function comprar(carri, user){
+    let boton = document.getElementById("comprar");
+    boton.onclick = () =>{
+        if(usuario){
+            let numeroDePedido = (ordenesDeCompra.length + 1);
+            let orden = {
+                "numeroDeOrden": numeroDePedido,
+                "productos": carri,
+                "usuario": user,
+            };
+            swal({
+                title: "Compra exitosa",
+                icon: "success",
+            })
+            .then(()=>{
+                ordenesDeCompra.push(orden);
+                sessionStorage.setItem("ordenesDeCompra", JSON.stringify(ordenesDeCompra));
+                sessionStorage.setItem("orden", JSON.stringify(orden));
+                localStorage.removeItem("carrito");
+                location.href="./ordenDeCompra.html";
+            });
+        }else{
+            swal({
+                title: "Necesita iniciar sesión para continuar",
+                icon: "warning",
+            })
+            .then(()=>{
+                location.href = "./login.html"
+            });
+        };
+    };
+};
 
+
+
+
+//EJECUCIÓN
+ordenesDeCompraEnStorage && (ordenesDeCompra = ordenesDeCompraEnStorage);
 if(!carrito){
     swal({
         title: "Carrito vacío",
@@ -79,6 +118,7 @@ if(!carrito){
 imprimirCarrito(productos, carrito);
 limpiarCarrito();
 agregarYQuitar(productos, carrito);
+comprar(carrito, usuario);
 logueo(usuario);
 mostrarUsuario(usuario);
 cerrarSesion();

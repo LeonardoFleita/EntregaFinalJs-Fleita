@@ -168,10 +168,10 @@ body .main-index #productoSeleccionado .productoSeleccionado__contenedorB {
   margin: 0 0.2rem 0 0;
   width: 1rem;
 }
-#carrito__seccion #carrito__contenedorTabla .total {
+#carrito__seccion #carrito__contenedorTabla #carrito__total {
   margin-top: 1rem;
 }
-#carrito__seccion #carrito__contenedorTabla .total .botonCarrito {
+#carrito__seccion #carrito__contenedorTabla #carrito__total .botonCarrito {
   margin-top: 0.5rem;
 }
 
@@ -214,4 +214,42 @@ body .main-index #productoSeleccionado .productoSeleccionado__contenedorB {
 .main-login .login button {
   width: 10rem;
   margin: 0.5rem 1rem 0.5rem 0rem;
+}
+
+main #orden {
+  border-radius: 5px;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  color: rgb(136, 136, 136);
+  margin: 2rem;
+  width: 20rem;
+  padding: 1rem;
+}
+main #orden:hover {
+  box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.25);
+}
+main #orden h1 {
+  font-size: 2rem;
+}
+main #orden h2 {
+  font-size: 1.5rem;
+}
+main #orden h3 {
+  font-size: 1.2rem;
+}
+main #orden #productosOrden {
+  margin-bottom: 1rem;
+}
+main #orden #productosOrden .orden__producto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+main #orden #productosOrden .orden__producto img {
+  width: 3rem;
+  margin-right: 1rem;
+}
+main #orden #productosOrden .orden__producto p {
+  margin: 0;
 }/*# sourceMappingURL=style.css.map */

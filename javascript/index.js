@@ -3,6 +3,7 @@ import { almacenar, logueo, cerrarSesion, mostrarUsuario, filtrar } from "./modu
 const productos = JSON.parse(localStorage.getItem("productos"));
 let usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
+
 //Recupera los productos de la Api y los guarda en el storage
 function almacenarApiEnStorage(clave){
     fetch('https://fakestoreapi.com/products')
@@ -49,12 +50,13 @@ cerrarSesion();
 setTimeout(()=>{toast.showToast();}, 3000);
 almacenarApiEnStorage("productos");
 filtrar(productos);
-let filtro = JSON.parse(localStorage.getItem("filtro"));
+let filtro = JSON.parse(sessionStorage.getItem("filtro"));
 if(filtro){
     imprimirProductos(filtro);   
 }else{
     imprimirProductos(productos);
 };
+
 
 
 

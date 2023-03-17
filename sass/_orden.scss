@@ -1,0 +1,39 @@
+main{
+    #orden{
+        border-radius: 5px;
+        background-color: white;
+        font-family: 'Roboto', sans-serif;
+        color: rgb(136, 136, 136);
+        margin: 2rem;
+        width: 20rem;
+        padding: 1rem;
+        &:hover{
+            box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.25);
+        }
+        h1{
+            font-size: 2rem;
+        }
+        h2{
+            font-size: 1.5rem;
+        }
+        h3{
+            font-size: 1.2rem;
+        }
+        #productosOrden{
+            .orden__producto{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 1rem;
+                img{
+                    width: 3rem;
+                    margin-right: 1rem;
+                }
+                p{
+                    margin: 0;
+                }
+            }
+            margin-bottom: 1rem;
+        };
+    };
+};

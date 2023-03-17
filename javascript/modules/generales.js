@@ -46,6 +46,9 @@ export function cerrarSesion(){
     for(const boton of cerrar){
         boton.onclick = () =>{
             localStorage.removeItem("usuarioLogueado");
+            localStorage.removeItem("carrito");
+            sessionStorage.removeItem("filtro");
+            sessionStorage.removeItem("orden");
             window.location.reload();
         };
     };
@@ -68,8 +71,8 @@ export function filtrar(prods){
     let electronica = document.getElementsByClassName("cat__electronica");
     for(const el of todos){
         el.onclick = ()=>{
-            localStorage.removeItem("filtro");
-            localStorage.setItem("filtro", JSON.stringify(prods));
+            sessionStorage.removeItem("filtro");
+            sessionStorage.setItem("filtro", JSON.stringify(prods));
             window.location.reload();
         };
     };
@@ -78,8 +81,8 @@ export function filtrar(prods){
             let catMujer = prods.filter((el)=>{
                 return el.category == "women's clothing";
             })
-            localStorage.removeItem("filtro");
-            localStorage.setItem("filtro", JSON.stringify(catMujer));
+            sessionStorage.removeItem("filtro");
+            sessionStorage.setItem("filtro", JSON.stringify(catMujer));
             window.location.reload();
         };
     };
@@ -88,8 +91,8 @@ export function filtrar(prods){
             let catJoyas = prods.filter((el)=>{
                 return el.category == "jewelery";
             })
-            localStorage.removeItem("filtro");
-            localStorage.setItem("filtro", JSON.stringify(catJoyas));
+            sessionStorage.removeItem("filtro");
+            sessionStorage.setItem("filtro", JSON.stringify(catJoyas));
             window.location.reload();
         };
     };
@@ -98,8 +101,8 @@ export function filtrar(prods){
             let catHombre = prods.filter((el)=>{
                 return el.category == "men's clothing";
             })
-            localStorage.removeItem("filtro");
-            localStorage.setItem("filtro", JSON.stringify(catHombre));
+            sessionStorage.removeItem("filtro");
+            sessionStorage.setItem("filtro", JSON.stringify(catHombre));
             window.location.reload();
         };
     };
@@ -108,8 +111,8 @@ export function filtrar(prods){
             let catElectronica = prods.filter((el)=>{
                 return el.category == "electronics";
             })
-            localStorage.removeItem("filtro");
-            localStorage.setItem("filtro", JSON.stringify(catElectronica));
+            sessionStorage.removeItem("filtro");
+            sessionStorage.setItem("filtro", JSON.stringify(catElectronica));
             window.location.reload();
         };
     };
