@@ -27,7 +27,7 @@ function imprimirCarrito(produ, carri){
         };
     };
     if(carri){
-        let total = precioTotal(carri);
+        let total = parseFloat(precioTotal(carri));
         let seccion = document.getElementById("carrito__total");
         seccion.innerHTML += `<h3>Total: $${total.toFixed(2)}</h3>`;
     }
